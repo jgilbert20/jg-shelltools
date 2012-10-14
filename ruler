@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+$r = 80;
+
+for( $i = 0 ; $i < $r ; $i++ ) { print substr $i < 10 ? 0 : $i/10 , 0, 1; }
+print "\n";
+for( $i = 0 ; $i < $r ; $i++ ) { print $i % 10 }
+print "\n";
