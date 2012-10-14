@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+
+foreach my $arg (@ARGV)
+{
+	$newfn = $arg . ".zip";
+	die "$newfn already exists" if -e $newfn ;
+#	system( '/usr/bin/zip', '-r', $newfn, $arg );
+  @CMD  =  ('/usr/bin/ditto', '-c','-k','--sequesterRsrc','--keepParent',$arg, $newfn);
+print (@CMD,"\n");
+	system( @CMD );
+}
+
+#"ditto -c -k --sequesterRsrc --keepParent"
+#The command:
+#           ditto -c -k --sequesterRsrc --keepParent src_directory archive.zip
+#     will create a PKZip archive similarly to the Finder's Compress functionality.
+
